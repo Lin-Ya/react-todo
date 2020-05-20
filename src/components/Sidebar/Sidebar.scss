@@ -1,0 +1,14 @@
+.Sidebar {
+  width: 400px;
+  overflow: hidden;
+  transition: all 0.3s;
+
+  &.shrink {
+    width: 48px;
+  }
+
+  .KButton {
+    width: 32px;
+    height: 32px;
+  }
+}
