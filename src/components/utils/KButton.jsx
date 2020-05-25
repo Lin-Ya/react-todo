@@ -2,7 +2,6 @@ import React from 'react'
 
 class KButton extends React.Component {
   static defaultProps = {
-    customClass: '',
     hoverClass: 'hover:bg-blue-700'
   }
   constructor (props) {
@@ -14,11 +13,11 @@ class KButton extends React.Component {
   }
   render () {
     const { btnDfClass } = this.state
-    const { customClass, hoverClass } = this.props
+    const { hoverClass } = this.props
     return (
       <button
         {...this.props}
-        className={`KButton ${btnDfClass} ${customClass} ${hoverClass}`}
+        className={`KButton ${btnDfClass}  ${hoverClass}`}
       >
         {this.props.children}
       </button>
