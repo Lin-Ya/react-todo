@@ -11,10 +11,21 @@ import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Content from './components/Content/Content'
 import config from './config'
+import { getTasks } from './api/tasks'
 
 function App () {
   const [isShrink, setShrink] = useState(config.isShrink)
   const [currentTaskList, setCurrentTaskList] = useState(config.staticMenuList[0])
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const type = currentTaskList.taskType
+    getTasks(type).then(res => {
+      setTasks(res.data)
+    }).catch(err => {
+      console.error('获取任务列表失败: ', err.message)
+    })
+  }, [currentTaskList.taskType])
 
   return (
     <div className='App bg-gray-100 flex flex-col'>
@@ -27,7 +38,7 @@ function App () {
           setCurrentTaskList={setCurrentTaskList}
           staticMenuList={config.staticMenuList}
         />
-        <Content themeColor={currentTaskList.color}/>
+        <Content currentTaskList={currentTaskList} tasks={tasks}/>
       </div>
     </div>
   )
