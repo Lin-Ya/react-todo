@@ -13,10 +13,8 @@ import Content from './components/Content/Content'
 import config from './config'
 
 function App () {
-
   const [isShrink, setShrink] = useState(config.isShrink)
-  const [currentTaskType, setCurrentTaskType] = useState(config.staticMenuList[0].taskType)
-  const [themeColor, setThemeColor] = useState(config.staticMenuList[0].color)
+  const [currentTaskList, setCurrentTaskList] = useState(config.staticMenuList[0])
 
   return (
     <div className='App bg-gray-100 flex flex-col'>
@@ -25,12 +23,11 @@ function App () {
         <Sidebar
           isShrink={isShrink}
           setShrink={setShrink}
-          currentTaskType={currentTaskType}
-          setCurrentTaskType={setCurrentTaskType}
-          setThemeColor={setThemeColor}
+          currentTaskList={currentTaskList}
+          setCurrentTaskList={setCurrentTaskList}
           staticMenuList={config.staticMenuList}
         />
-        <Content themeColor={themeColor}/>
+        <Content themeColor={currentTaskList.color}/>
       </div>
     </div>
   )

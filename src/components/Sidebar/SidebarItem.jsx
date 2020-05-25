@@ -5,7 +5,6 @@ import KButton from '../utils/KButton'
 class SidebarItem extends React.Component {
   static defaultProps = {
     title: '默认标题',
-    btnIcon: null,
     taskType: '',
     color: 'gray',
     isActive: false

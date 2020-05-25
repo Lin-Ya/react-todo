@@ -11,9 +11,8 @@ const Sidebar = props => {
       return (
         <SidebarItem
           isActive={currentTaskType === item.taskType}
-          switch={(menu) => {
-            props.setCurrentTaskType(menu.taskType)
-            props.setThemeColor(menu.color)
+          switch={(taskList) => {
+            props.setCurrentTaskList(taskList)
           }}
           key={item.taskType}
           title={item.title}
@@ -37,7 +36,7 @@ const Sidebar = props => {
         </KButton>
       </div>
       <div className='py-2'>
-        {genStaticMenu(props.currentTaskType, props.staticMenuList)}
+        {genStaticMenu(props.currentTaskList.taskType, props.staticMenuList)}
       </div>
     </div>
   )
