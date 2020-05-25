@@ -1,13 +1,12 @@
 import React from 'react'
+import './Content.scss'
 
-class Content extends React.Component {
-  constructor (props) {
-    super()
-  }
-
-  render () {
-    return <div className='bg-red-500 flex-1'>Content</div>
-  }
+const Content = props => {
+  const { themeColor } = props
+  const bgStyle = themeColor ? `bg-${themeColor}-200` : 'bg-transparent'
+  return (
+    <div className={`Content ${bgStyle}`}>Content</div>
+  )
 }
 
 export default Content

@@ -11,12 +11,14 @@ const Sidebar = props => {
       return (
         <SidebarItem
           isActive={currentTaskType === item.taskType}
-          switch={(type) => props.setCurrentTaskType(type)}
+          switch={(menu) => {
+            props.setCurrentTaskType(menu.taskType)
+            props.setThemeColor(menu.color)
+          }}
           key={item.taskType}
           title={item.title}
-          taskType={item.taskType}
-          textColor={item.textColor}
-          hoverClass={item.hoverClass}>
+          color={item.color}
+          taskType={item.taskType}>
           {item.icon}
         </SidebarItem>
       )

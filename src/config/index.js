@@ -8,22 +8,23 @@ const config = {
       title: '我的一天',
       icon: <CoffeeOutlined style={{ fontSize: '20px' }}/>,
       taskType: 'myDay',
-      textColor: 'text-red-500',
-      hoverClass: 'hover:bg-red-200',
+      color: 'red'
     },
     {
       title: '重要',
       icon: <BellOutlined style={{ fontSize: '20px' }}/>,
       taskType: 'important',
-      textColor: 'text-blue-500',
-      hoverClass: 'hover:bg-blue-200',
+      color: 'blue'
+      // textColor: 'text-blue-500',
+      // hoverClass: 'hover:bg-blue-200',
     },
     {
       title: '任务',
       icon: <InboxOutlined style={{ fontSize: '20px' }}/>,
       taskType: 'inbox',
-      textColor: 'text-green-500',
-      hoverClass: 'hover:bg-green-200',
+      color: 'green'
+      // textColor: 'text-green-500',
+      // hoverClass: 'hover:bg-green-200',
     }
   ]
 }

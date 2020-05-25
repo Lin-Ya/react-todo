@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'reset-css'
 import 'normalize.css/normalize.css'
 import './App.css'
@@ -16,9 +16,10 @@ function App () {
 
   const [isShrink, setShrink] = useState(config.isShrink)
   const [currentTaskType, setCurrentTaskType] = useState(config.staticMenuList[0].taskType)
+  const [themeColor, setThemeColor] = useState(config.staticMenuList[0].color)
 
   return (
-    <div className='App bg-teal-600 flex flex-col'>
+    <div className='App bg-gray-100 flex flex-col'>
       <Header/>
       <div className='flex-1 flex'>
         <Sidebar
@@ -26,9 +27,10 @@ function App () {
           setShrink={setShrink}
           currentTaskType={currentTaskType}
           setCurrentTaskType={setCurrentTaskType}
+          setThemeColor={setThemeColor}
           staticMenuList={config.staticMenuList}
         />
-        <Content/>
+        <Content themeColor={themeColor}/>
       </div>
     </div>
   )

@@ -6,19 +6,20 @@ class SidebarItem extends React.Component {
   static defaultProps = {
     title: '默认标题',
     btnIcon: null,
-    textColor: '',
-    hoverClass: 'hover:bg-gray-300',
-    bgClass: 'bg-transparent',
-    currentTaskType: '',
-    taskType: ''
+    taskType: '',
+    color: 'gray',
+    isActive: false
   }
 
   render () {
     const { props } = this
-    const bgClass = props.isActive ? props.hoverClass.replace('hover:', '') : props.bgClass
+    const { color, isActive } = props
+    const textStyle = `text-${color}-500`
+    const bgStyle = isActive ? `bg-${color}-200` : 'bg-transparent'
+    const hoverStyle = `hover:bg-${color}-200`
     return (
-      <div onClick={() => props.switch(props.taskType)}
-           className={`Sidebar-Item flex items-center ${props.textColor} ${bgClass} ${props.hoverClass}`}>
+      <div onClick={() => props.switch(props)}
+           className={`Sidebar-Item flex items-center ${textStyle} ${bgStyle} ${hoverStyle}`}>
         <KButton hoverClass='hover:bg-transparent'>
           {props.children}
         </KButton>
