@@ -10,7 +10,7 @@ const Content = props => {
     <div className={`Content ${bgStyle}`}>
       <h1 className={`font-bold text-2xl text-${color}-600 pb-8`}>{title}</h1>
       <div>
-        {tasks.map(task => (TaskItem({ task })))}
+        {tasks.map(task => <TaskItem color={color} task={task} key={task.id}/>)}
       </div>
     </div>
   )
